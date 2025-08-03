@@ -8,9 +8,11 @@ Frontend Setup (Client):
 
   cd client
   
-  Install Dependencies: 'npm install'
+  Install Dependencies: 
+    'npm install'
   
-  Run the client side: 'npm run dev'
+  Run the client side: 
+    'npm run dev'
 
 ###############################################################
 
@@ -18,7 +20,8 @@ Backend Setup (Server):
 
   cd server
   
-  Install Dependencies: 'npm install'
+  Install Dependencies: 
+    'npm install'
   
   Create .env File:
   
@@ -31,8 +34,11 @@ Backend Setup (Server):
 ###############################################################
 
 Database Setup:
-  Generate the Prisma client: 'npx prisma generate'
+  Generate the Prisma client: 
+    'npx prisma generate'
   
-  If it's the first time, also run the migration: 'npx prisma migrate dev --name init'
+  If it's the first time, also run the migration: 
+    'npx prisma migrate dev --name init'
   
-  Run the server side: 'npx nodemon src/server.ts'
+  Run the server side: 
+    'npx nodemon src/server.ts'
