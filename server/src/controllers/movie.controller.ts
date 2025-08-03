@@ -87,7 +87,12 @@ export const updateMovie = async (req: AuthenticatedRequest, res: Response) => {
       data: req.body,
     });
 
-    res.json(updatedMovie);
+    const sanitizedMovie = {
+      ...updatedMovie,
+      budget: updatedMovie.budget?.toString(),
+    };
+
+    res.json(sanitizedMovie);
   } catch (err) {
     console.error("Update Movie Error:", err);
     res.status(500).json({ error: "Failed to update movie" });
