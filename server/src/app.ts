@@ -5,10 +5,7 @@ import movieRoutes from "./routes/movie.routes";
 
 const app = express();
 
-app.use(cors({
-    origin: 'https://fullstack-movie-app-rvqh.vercel.app',
-    credentials: true,
-}));
+app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api", movieRoutes);
