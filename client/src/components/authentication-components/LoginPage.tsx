@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LoginPage = () => {
+    const API = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
 
     // Form state to hold email and password inputs
@@ -27,7 +28,7 @@ const LoginPage = () => {
 
         try {
             // Send login request to backend
-            const res = await axios.post("http://localhost:5000/api/auth/login", form);
+            const res = await axios.post(`${API}/api/auth/login`, form);
 
             // Save token to local storage on successful login
             localStorage.setItem("token", res.data.token);

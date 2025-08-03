@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const SignUpPage = () => {
+    const API = import.meta.env.VITE_API_URL;
     const navigate = useNavigate(); // Hook to programmatically navigate to another route
     const [form, setForm] = useState({ name: "", email: "", password: "" }); // Form state
     const [error, setError] = useState(""); // Error state for displaying signup errors
@@ -21,7 +22,7 @@ const SignUpPage = () => {
 
         try {
             // Send signup data to backend
-            const res = await axios.post("http://localhost:5000/api/auth/signup", form);
+            const res = await axios.post(`${API}/api/auth/signup`, form);
             alert(res.data.message); // Show success message
             navigate('/'); // Redirect to sign-in page
         } catch (err: any) {

@@ -5,6 +5,7 @@ import axios from "axios";
 
 // EntryForm component handles the form UI and logic for submitting a new movie or TV show entry
 const EntryForm = () => {
+    const API = import.meta.env.VITE_API_URL;
     const navigate = useNavigate(); // React Router hook to navigate programmatically
 
     // State to hold form data (excluding the 'id' field)
@@ -40,7 +41,7 @@ const EntryForm = () => {
 
         try {
             // Send POST request to backend API with form data and auth token
-            const response = await axios.post("http://localhost:5000/api/movies", formData, {
+            const response = await axios.post(`${API}/api/movies`, formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`, // Auth header
                 },

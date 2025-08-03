@@ -4,6 +4,7 @@ import EditModal from "./EditModal";
 import axios from 'axios';
 
 const EntryTable = () => {
+  const API = import.meta.env.VITE_API_URL;
   // Ref to track the scrollable table container
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +27,7 @@ const EntryTable = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get<Entry[]>("http://localhost:5000/api/entries", {
+        const response = await axios.get<Entry[]>(`${API}/api/entries`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -54,7 +55,7 @@ const EntryTable = () => {
       ...(typeFilter && { type: typeFilter }),
     });
 
-    const res = await fetch(`http://localhost:5000/api/entries?${params.toString()}`, {
+    const res = await fetch(`${API}/api/entries?${params.toString()}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -114,7 +115,7 @@ const EntryTable = () => {
     setIsUpdating(true);
 
     try {
-      const response = await axios.put<Entry>(`http://localhost:5000/api/movies/${updated.id}`, updated, {
+      const response = await axios.put<Entry>(`${API}/api/movies/${updated.id}`, updated, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -137,7 +138,7 @@ const EntryTable = () => {
     setIsDeleting(true);
 
     try {
-      await axios.delete(`http://localhost:5000/api/movies/${id}`, {
+      await axios.delete(`${API}/api/movies/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
