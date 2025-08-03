@@ -1,4 +1,5 @@
 git clone https://github.com/Jibin258/fullstack-movie-app.git
+
 cd fullstack-movie-app
 
 Frontend Setup (Client):
