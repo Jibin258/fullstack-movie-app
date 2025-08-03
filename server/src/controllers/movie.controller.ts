@@ -55,7 +55,12 @@ export const getUserMovies = async (req: AuthenticatedRequest, res: Response) =>
       },
     });
 
-    res.json(movies);
+    const sanitizedMovies = movies.map((movie) => ({
+      ...movie,
+      budget: movie.budget?.toString(),
+    }));
+
+    res.json(sanitizedMovies);
   } catch (err) {
     console.error("Fetch Movies Error:", err);
     res.status(500).json({ error: "Failed to fetch movies" });
