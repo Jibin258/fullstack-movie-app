@@ -214,7 +214,7 @@ const EntryTable = () => {
                       className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
                       disabled={isUpdating}
                     >
-                      {isUpdating ? 'Updating...' : 'Update'}
+                      Edit
                     </button>
                     {/* Delete Button */}
                     <button
@@ -222,7 +222,7 @@ const EntryTable = () => {
                       className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
                       disabled={isDeleting}
                     >
-                      {isDeleting ? 'Deleting...' : 'Delete'}
+                      Delete
                     </button>
                   </td>
                 </tr>

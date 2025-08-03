@@ -20,7 +20,7 @@ model Movie {
   title     String
   type      String
   director  String
-  budget    Int
+  budget    BigInt
   location  String
   duration  String
   yearOrTime String
